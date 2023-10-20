@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+  app:
+    environment:
+      - APP_PORT=8080
+      - APP_DEBUG=true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - database-volume:/app/persistent_storage
+
+
+volumes:
+  database-volume:
